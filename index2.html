@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		#f1{
+			margin:30px 20%;
+		}
+		#tx1{
+			width:30%;
+			height: 30px;
+			border-radius: 5px;
+		}
+		#btn{
+			width:30%;
+			height: 40px;
+			border-radius: 5px;
+			margin-left: 30px;
+			margin-right: 30px;
+			background-color: green;
+			color:white;
+
+		}
+		#tx2{
+			width:30%;
+			height: 30px;
+			border-radius: 5px;
+		}
+		#tx3{
+			width:30%;
+			height: 30px;
+			border-radius: 5px;
+			margin:30px 20%;
+		}
+	</style>
+</head>
+<body>
+	<form action="" name="f1" id="f1">
+		<input type="text" name="text1" id="tx1">
+		<input type="button" name="button" value="move" id="btn">
+		<input type="text" name="text2" id="tx2">
+	</form>
+	<input type="text" name="text3" id="tx3" placeholder="">
+
+
+
+
+
+	<script>
+		document.getElementById("btn").addEventListener('click', ()=>{
+			if(f1.text1.value){
+				let moveText = f1.text1.value
+				document.getElementById("tx2").value= moveText
+				f1.text1.value = ''
+			}
+		})
+
+
+
+		document.getElementById('tx3').addEventListener('change',()=>{
+			if(document.getElementById('tx3').value){
+				
+				document.getElementById('tx3').placeholder = document.getElementById('tx3').value 
+				document.getElementById('tx3').value= ""
+			}
+
+		})
+
+
+	</script>
+</body>
+</html>

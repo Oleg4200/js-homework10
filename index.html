@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign in</title>
+	<style>
+		.sign{
+			width: 40%;
+			margin:30px auto;
+			border: 1px solid grey;
+			border-radius: 5px;
+		}
+		.title{
+			text-align: center;
+			border-bottom:1px solid green;
+			padding-bottom: 10px;
+			padding-top: 10px;
+			background-color: green;
+			border-radius-top: 5px;
+			margin-top: 0px;
+		}
+		.left_margin{
+			margin-left: 20px;
+		}
+		.check{
+			margin-left: 20px;
+		}
+		.field1{
+			width: 85%;
+			height:30px;
+			border-radius:5px;
+		}
+		.field2{
+			width: 85%;
+			height:30px;
+			border-radius:5px;
+		}
+		.field3{
+			width: 85%;
+			height:30px;
+			border-radius:5px;
+		}
+		.field4{
+			width: 85%;
+			height:30px;
+			border-radius:5px;
+		}
+		.male{
+			margin-left: 20px;
+		}
+		.female{
+			margin-left: 20px;
+		}
+		#button_sign{
+			margin: 15px 8%;
+			width: 85%;
+			height: 35px;
+			background-color: green;
+			color:white;
+			border-radius: 5px;
+
+		}
+		#went_in{
+			border:1px solid green;
+			width: 40%;
+			margin:30px auto;
+			display: none;
+		}
+		.background_color_green{
+			height: 150px;
+			background-color: green;
+			z-index: 1;
+		}
+		.male_image{
+			width: 150px;
+			height: 150px;
+			z-index: 5;
+			position: relative;
+			left: 35%;
+			top:-80px;
+			margin-bottom: -80px;
+		}
+		.female_image{
+			width: 150px;
+			height: 150px;
+			z-index: 10;
+			position: relative;
+			left: 35%;
+			top:-80px;
+			margin-bottom: -80px;
+		}
+		.went_in-button{
+			border: 1px solid green;
+			color:green;
+			background-color: white;
+			padding:5px;
+			margin-left: 43%;
+			margin-top: 15px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			font-size: 18px;
+		}
+		.went_in-footer{
+			background-color: green;
+			height: 100px;
+		}
+		.facebook{
+			width: 20px;
+		}
+		#went_in-name{
+			text-align: center;
+		}
+		#went_in-email{
+			text-align: center;
+		}
+		#went_in-position{
+			text-align: center;
+		}
+        #github{
+            width: 50px;
+            height: 50px;
+        }
+        .margin_footer{
+            margin-left: 40%;
+        }
+
+
+	</style>
+</head>
+<body>
+	<div class="sign">
+		<form action="" name="f1">
+		<h3 class="title">Sign In</h3>
+		<p class="left_margin">First Name <br><input type="text" name="first_name" class="field1" placeholder="type here"></p>
+		<p class="left_margin">Second Name <br><input type="text" name="second_name" class="field2" placeholder="type here"></p>
+		<p class="left_margin">Email address <br><input type="email" name="email" class="field3" placeholder="type here"></p>
+		<input type="radio" name="radio_button" class="male">man
+		<input type="radio" name="radio_button" class="female">woman
+		<p class="left_margin">Position <br>
+			<select class="field4">
+				<option>Choose</option>
+				<option>Frontend</option>
+				<option>Backend</option>
+				<option>QC/QA</option>
+			</select>
+		</p>
+		<input class="check" type="checkbox" name="checkbox">I agree all statements in Terms of service <br><hr>
+		<input id="button_sign" type="button" name="button_sign" value="Sign In" disabled>
+		</form>
+	</div>
+
+	<div id="went_in">
+		<div class="background_color_green"></div>
+		<img class="male_image" src="1524551990face.png">
+		<img class="female_image" src="udwtuomqpuvacplwdrwx.png">
+		<h2 id="went_in-name"></h2>
+		<p id="went_in-email"></p>
+		<p id="went_in-position"></p><br><hr>
+		<input type="button" name="button" class="went_in-button" value="Sign Out">
+		<div class="went_in-footer">
+		<div class="margin_footer">
+            <a href="https://github.com"><img src="github-brand-logo-47401.png" id="github"></a>
+            <a href="https://www.facebook.com/"><img src="footer-facebook.png" id="github"></a>	
+		</div>
+
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<script>
+		
+		document.getElementById('button_sign').addEventListener('click', ()=>{
+			document.getElementById('went_in').style.display = 'block'
+			document.querySelector('.sign').style.display = 'none'
+			let firstName = f1.first_name.value
+			let secondName = f1.second_name.value
+			document.getElementById("went_in-name").innerHTML = (firstName + " " + secondName)
+			let mail = f1.email.value
+			document.getElementById("went_in-email").innerHTML = mail
+			let position = document.querySelector('.field4').value
+			document.getElementById("went_in-position").innerHTML = position
+			
+			let male = document.querySelector('.male')
+			let female = document.querySelector('.female')
+			if(document.querySelector('.male').checked==true){
+				document.querySelector('.female_image').style.display= "none"
+				document.querySelector('.male_image').style.display= "block"
+			}
+			else if(document.querySelector('.female').checked==true){
+				document.querySelector('.male_image').style.display= "none"
+				document.querySelector('.female_image').style.display= "block"
+			}
+			else{
+				document.querySelector('.male_image').style.display= "none"
+				document.querySelector('.female_image').style.display= "none"
+			}
+						
+		})
+
+		document.querySelector('.check').addEventListener("change", function(event) {
+			if (event.target.checked) {
+  			document.getElementById('button_sign').disabled = false;
+  		} else {
+    		document.getElementById('button_sign').disabled = true;
+  		}
+		}, false);
+			
+		
+
+
+
+		document.querySelector('.went_in-button').addEventListener('click', ()=>{
+			document.getElementById('went_in').style.display = 'none'
+			document.querySelector('.sign').style.display = 'block'
+		})
+
+
+		
+	</script>
+</body>
+</html>
